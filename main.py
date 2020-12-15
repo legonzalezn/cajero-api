@@ -14,6 +14,18 @@ from fastapi import HTTPException
 
 api = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+origins = [
+    "http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
+    "http://localhost", "http://localhost:8080","http://127.0.0.1:8000"
+]
+
+api.add_middleware(
+    CORSMiddleware, allow_origins=origins,
+    allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
+)
+
 @api.post("/user/auth/")
 async def auth_user(user_in:UserIn):
     user_in_db = get_user(user_in.username)
@@ -23,7 +35,7 @@ async def auth_user(user_in:UserIn):
         return {"Autenticado":False}
     return{"Autenticado":True}
 
-@api.get("user/balance/{username}")
+@api.get("/user/balance/{username}")
 async def get_balance(username:str):
     user_in_db = get_user(username)
     if user_in_db == None:
