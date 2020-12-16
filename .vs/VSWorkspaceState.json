@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\db",
+    "\\models",
+    "\\__pycache__"
   ],
-  "SelectedNode": "\\main.py",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }

@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "express": "^4.17.1",
-    "serve-static": "^1.14.1"
+    "@babel/express": "^4.17.1",
+    "@babel/serve-static": "^1.14.1"
   }
 }
